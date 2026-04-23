@@ -22,18 +22,18 @@ public class Enemy : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         // mata o player
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
 
             Debug.Log("Player morreu");
         }
 
         // destrói o inimigo
-        if (collision.gameObject.CompareTag("Weapon"))
+        if (other.CompareTag("Weapon"))
         {
             Destroy(gameObject);
         }
