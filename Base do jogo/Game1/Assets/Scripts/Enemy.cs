@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(other.gameObject);
 
-            Debug.Log("Player morreu");
+            FindObjectOfType<GameManager>().GameOver();
         }
 
         // destrói o inimigo
