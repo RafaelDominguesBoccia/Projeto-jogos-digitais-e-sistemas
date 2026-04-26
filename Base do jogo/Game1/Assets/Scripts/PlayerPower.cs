@@ -1,13 +1,22 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections;
 
 public class PlayerPower : MonoBehaviour
 {
     public bool powerActive = false;
+    public GameObject shieldObject;
+    private Coroutine currentRoutine;
+    private Collider shieldCollider;
+    private Renderer shieldRenderer;
 
     public void ActivatePowerUp(float duration)
     {
-        StartCoroutine(PowerRoutine(duration));
+        if (currentRoutine != null)
+        {
+            StopCoroutine(currentRoutine);
+        }
+
+        currentRoutine = StartCoroutine(PowerRoutine(duration));
     }
 
     IEnumerator PowerRoutine(float duration)
@@ -16,15 +25,19 @@ public class PlayerPower : MonoBehaviour
 
         Debug.Log("POWER UP ATIVO");
 
-        // aqui você coloca o efeito:
-        // velocidade
-        // arma
-        // escudo
-        // etc
+        
+        if (shieldObject != null)
+            shieldObject.SetActive(true); // liga o shield
 
         yield return new WaitForSeconds(duration);
 
         powerActive = false;
+
+        if (shieldObject != null)
+            shieldObject.SetActive(false); // desliga o shield
+
+        currentRoutine = null;
+
 
         Debug.Log("POWER UP ACABOU");
     }
