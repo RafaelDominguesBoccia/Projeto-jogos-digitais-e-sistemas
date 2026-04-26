@@ -1,24 +1,33 @@
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
-{
+{ 
+    // Prefab do inimigo que será criado
     public GameObject enemyPrefab;
 
+    // Limites horizontais do mapa
     public float minX = 12f;
     public float maxX = -12f;
 
+    // Limites verticais/profundidade do mapa
     public float minZ = 5.2f;
     public float maxZ = -5.2f;
 
+    // Altura fixa do chão onde os inimigos irão spawnar
     public float groundY = 4.2f;
 
+    // Tempo entre cada spawn de inimigo
     public float spawnTime = 0.7f;
 
     [Header("Velocidade")]
+
+    // Velocidade inicial dos inimigos
     public float currentSpeed = 0.5f;
 
+    // Velocidade máxima que os inimigos podem atingir
     public float maxSpeed = 5f;
 
+    // Quanto a velocidade aumenta com o tempo
     public float speedIncrease = 0.1f;
 
 
