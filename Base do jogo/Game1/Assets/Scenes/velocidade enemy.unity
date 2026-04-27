@@ -1399,7 +1399,7 @@ MonoBehaviour:
   minZ: 5.2
   maxZ: -5.2
   groundY: 4.2
-  spawnDelay: 10
+  spawnDelay: 15
 --- !u!4 &862737378
 Transform:
   m_ObjectHideFlags: 0
